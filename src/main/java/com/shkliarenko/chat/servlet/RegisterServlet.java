@@ -36,7 +36,6 @@ public class RegisterServlet extends HttpServlet {
 				String passHash = Hashing.sha256()
 				        .hashString(pass, StandardCharsets.UTF_8)
 				        .toString();
-				System.out.println(passHash.length());
 				User u = new User(0, login, passHash, email);
 				new UserDaoLocal().newUser(u);
 				response.sendRedirect("index.jsp");

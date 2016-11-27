@@ -24,7 +24,7 @@ public class LoginPageServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		User u = new UserDaoLocal().getUser(request.getParameter("login"));
+		User u = new UserDaoLocal().getUser(request.getParameter("login").toLowerCase());
 		if (u != null){
 			String passHash = Hashing.sha256()
 			        .hashString(request.getParameter("pass"), StandardCharsets.UTF_8)

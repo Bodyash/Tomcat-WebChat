@@ -28,7 +28,7 @@ public class RegisterServlet extends HttpServlet {
 		String pass = request.getParameter("pass");
 		String passrep = request.getParameter("passrepeat");
 		String email = request.getParameter("email");
-		if (new UserDaoLocal().checkUser(login)){
+		if (new UserDaoLocal().checkUser(login.toLowerCase())){
 			//Login Exist
 			//Must code This Part
 		}else{
@@ -36,7 +36,7 @@ public class RegisterServlet extends HttpServlet {
 				String passHash = Hashing.sha256()
 				        .hashString(pass, StandardCharsets.UTF_8)
 				        .toString();
-				User u = new User(0, login, passHash, email);
+				User u = new User(0, login.toLowerCase(), passHash, email);
 				new UserDaoLocal().newUser(u);
 				response.sendRedirect("index.jsp");
 				return;

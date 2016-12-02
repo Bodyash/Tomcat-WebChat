@@ -2,6 +2,7 @@
 
 body {
 	background-image: url(../img/bg.jpg); /* Путь к фоновому изображению */
+    font-family: Helvetica, sans-serif;
 }
 
 form {
@@ -14,9 +15,17 @@ form {
 	margin-right: 30%;
 	margin-left: 30%;
 	border-radius: 8px;
+	font-family: Helvetica, sans-serif;
 }
 
 h1 {
 	color: white;
 	font-size: 40px;
+	font-family: Helvetica, sans-serif;
+}
+
+h2 {
+	color: red;
+	font-size: 20px;
+	font-family: Helvetica, sans-serif;
 }

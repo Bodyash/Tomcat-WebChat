@@ -20,7 +20,7 @@ public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.sendRedirect("register.jsp");
+		getServletContext().getRequestDispatcher("/register.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -28,11 +28,21 @@ public class RegisterServlet extends HttpServlet {
 		String pass = request.getParameter("pass");
 		String passrep = request.getParameter("passrepeat");
 		String email = request.getParameter("email");
+		if (login.equals("") || login.length()<4){
+			request.setAttribute("msg", "Login too short");
+			getServletContext().getRequestDispatcher("/register.jsp").forward(request, response);
+			return;
+		}
+
 		if (new UserDaoLocal().checkUser(login.toLowerCase())){
-			//Login Exist
-			//Must code This Part
+			request.setAttribute("msg", "Username is already registered");
 		}else{
 			if(pass.equals(passrep)){
+				if (pass.equals("") || pass.length()<4){
+					request.setAttribute("msg", "Password too short");
+					getServletContext().getRequestDispatcher("/register.jsp").forward(request, response);
+					return;
+				}
 				String passHash = Hashing.sha256()
 				        .hashString(pass, StandardCharsets.UTF_8)
 				        .toString();
@@ -41,11 +51,10 @@ public class RegisterServlet extends HttpServlet {
 				response.sendRedirect("index.jsp");
 				return;
 			}else{
-				//Wrong Passwords Input
-				//Must Code This Part
+				request.setAttribute("msg", "Passwords do not match");
 			}
 		}
-		response.sendRedirect("register.jsp");
+		getServletContext().getRequestDispatcher("/register.jsp").forward(request, response);
 		return;
 		
 		

@@ -30,21 +30,19 @@ public class LoginPageServlet extends HttpServlet {
 			        .hashString(request.getParameter("pass"), StandardCharsets.UTF_8)
 			        .toString();
 			if (passHash.equals(u.getPassHash())){
-				//If passwords equals:
 				request.getSession().setAttribute("user", u);
 				request.getSession().setAttribute("nickname", NameRandomizer.generateName());
 				response.sendRedirect("chat.jsp");
 				return;
 			}else{
-				response.sendRedirect("index.jsp");
+				request.setAttribute("msg", "Wrong Password, Try Again!");
+				getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 				return;
-				//Need to ADD SESSION MESSAGES!
 			}
 		}else{
-			//If There is no User in DB (redirect to registration page?)
-			response.sendRedirect("registation.jsp");
+			request.setAttribute("msg", "Username Not Found, please, register");
+			getServletContext().getRequestDispatcher("/register.jsp").forward(request, response);
 			return;
-			//Need to ADD SESSION MESSAGES!
 		}
 	}
 

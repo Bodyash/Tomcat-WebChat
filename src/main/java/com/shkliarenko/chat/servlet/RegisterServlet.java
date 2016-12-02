@@ -33,6 +33,9 @@ public class RegisterServlet extends HttpServlet {
 			getServletContext().getRequestDispatcher("/register.jsp").forward(request, response);
 			return;
 		}
+		if (email.equals("")){
+			email = null;
+		}
 
 		if (new UserDaoLocal().checkUser(login.toLowerCase())){
 			request.setAttribute("msg", "Username is already registered");

@@ -16,17 +16,19 @@
 			response.sendRedirect("index.jsp");
 		}
 	%>
-	U are logged in AS:
-	<c:out value="${user.login}" />
-	<br> Your passwordHash:
-	<c:out value="${user.passHash}" />
-	<br> Your email:
-	<c:out value="${user.email}" />
-	<br> Your ID in DB:
-	<c:out value="${user.id}" />
-	<br> Your Randomly Generated Nickname for this session:
-	<c:out value="${nickname}" />
-	<br>
+	<div class="mybox">
+		U are logged in AS:
+		<c:out value="${user.login}" />
+		<br> Your passwordHash:
+		<c:out value="${user.passHash}" />
+		<br> Your email:
+		<c:out value="${user.email}" />
+		<br> Your ID in DB:
+		<c:out value="${user.id}" />
+		<br> Your Randomly Generated Nickname for this session:
+		<c:out value="${nickname}" />
+		<br>
+	</div>
 
 
 
@@ -48,6 +50,10 @@
 					<tr class="active">
 						<td>${nickname}:</td>
 						<td>Message</td>
+					</tr>
+					<tr class="active">
+						<td>RandomUser:</td>
+						<td>Hello! Welcome to this Chat!</td>
 					</tr>
 				</tbody>
 			</table>

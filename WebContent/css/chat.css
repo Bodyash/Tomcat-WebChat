@@ -4,6 +4,7 @@ body {
     font-size: 18px;
     text-align:center;
     padding-top: 30px;
+    background-image: url(../img/bg.jpg);
 }
   
 form, p, span {
@@ -12,6 +13,19 @@ form, p, span {
     color: white; }
   
 input { font:12px arial; }
+
+.mybox {
+	color: white; border-radius : 8px;
+	border: 6px white;
+	background: #404040; /* Цвет фона */
+	padding: 20px; /* Поля вокруг текста */
+	margin-top: 20px;
+	margin-bottom: 20px;
+	width:60%;
+	margin-left:20%;
+	border-radius: 8px;
+	font-family: Helvetica, sans-serif;
+}
   
   
 #wrapper, #loginform {

@@ -1,4 +1,4 @@
-package main.java.com.shkliarenko.chat.dao;
+package main.java.com.shkliarenko.chat.bean;
 
 public class User {
 	private long id;

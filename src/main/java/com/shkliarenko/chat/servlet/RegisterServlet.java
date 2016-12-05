@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.common.hash.Hashing;
 
-import main.java.com.shkliarenko.chat.dao.User;
+import main.java.com.shkliarenko.chat.bean.User;
 import main.java.com.shkliarenko.chat.dao.UserDaoLocal;
 
 

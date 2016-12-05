@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import main.java.com.shkliarenko.chat.bean.User;
+
 public class UserDaoLocal implements UserDao {
 
 	@Override

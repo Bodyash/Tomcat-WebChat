@@ -44,22 +44,21 @@
 			<div style="clear: both"></div>
 		</div>
 
+
 		<div id="chatbox">
 			<table class="table table-striped">
 				<tbody>
-					<tr class="active">
-						<td>${nickname}:</td>
-						<td>Message</td>
-					</tr>
-					<tr class="active">
-						<td>RandomUser:</td>
-						<td>Hello! Welcome to this Chat!</td>
-					</tr>
+					<c:forEach items="${messagelist}" var="usermsg">
+						<tr>
+							<td>${usermsg.nickname}:</td>
+							<td>${usermsg.message}</td>
+						</tr>
+					</c:forEach>
 				</tbody>
 			</table>
 		</div>
 
-		<form name="message" action="">
+		<form name="message" action="message" method="post">
 			<input name="usermsg" type="text" id="usermsg" size="63" /> <input
 				name="submitmsg" type="submit" id="submitmsg" value="Send"
 				class="btn btn-success" />
